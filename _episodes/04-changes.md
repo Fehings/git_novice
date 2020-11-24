@@ -526,65 +526,7 @@ repository (`git commit`):
 > {: .solution}
 {: .challenge}
 
-> ## Committing Multiple Files
->
-> The staging area can hold changes from any number of files
-> that you want to commit as a single snapshot.
->
-> 1. Add some text to `mars.txt` noting your decision
-> to consider Venus as a base
-> 2. Create a new file `venus.txt` with your initial thoughts
-> about Venus as a base for you and your friends
-> 3. Add changes from both files to the staging area,
-> and commit those changes.
->
-> > ## Solution
-> >
-> > First we make our changes to the `mars.txt` and `venus.txt` files:
-> > ~~~
-> > $ nano mars.txt
-> > $ cat mars.txt
-> > ~~~
-> > {: .language-bash}
-> > ~~~
-> > Maybe I should start with a base on Venus.
-> > ~~~
-> > {: .output}
-> > ~~~
-> > $ nano venus.txt
-> > $ cat venus.txt
-> > ~~~
-> > {: .language-bash}
-> > ~~~
-> > Venus is a nice planet and I definitely should consider it as a base.
-> > ~~~
-> > {: .output}
-> > Now you can add both files to the staging area. We can do that in one line:
-> >
-> > ~~~
-> > $ git add mars.txt venus.txt
-> > ~~~
-> > {: .language-bash}
-> > Or with multiple commands:
-> > ~~~
-> > $ git add mars.txt
-> > $ git add venus.txt
-> > ~~~
-> > {: .language-bash}
-> > Now the files are ready to commit. You can check that using `git status`. If you are ready to commit use:
-> > ~~~
-> > $ git commit -m "Write plans to start a base on Venus"
-> > ~~~
-> > {: .language-bash}
-> > ~~~
-> > [master cc127c2]
-> >  Write plans to start a base on Venus
-> >  2 files changed, 2 insertions(+)
-> >  create mode 100644 venus.txt
-> > ~~~
-> > {: .output}
-> {: .solution}
-{: .challenge}
+
 
 > ## `bio` Repository
 >
