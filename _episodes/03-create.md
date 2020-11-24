@@ -15,35 +15,19 @@ keypoints:
 Once Git is configured,
 we can start using it.
 
-We will continue with the story of Wolfman and Dracula who are investigating if it
-is possible to send a planetary lander to Mars. 
-
-![motivatingexample](../fig/motivatingexample.png)
-[Werewolf vs dracula](https://www.deviantart.com/b-maze/art/Werewolf-vs-Dracula-124893530)
-by [b-maze](https://www.deviantart.com/b-maze) / [Deviant Art](https://www.deviantart.com/).
-[Mars](https://en.wikipedia.org/wiki/File:OSIRIS_Mars_true_color.jpg) by European Space Agency /
-[CC-BY-SA 3.0 IGO](https://creativecommons.org/licenses/by/3.0/deed.en).
-[Pluto](https://commons.wikimedia.org/wiki/File:PIA19873-Pluto-NewHorizons-FlyingPastImage-20150714-transparent.png) /
-Courtesy NASA/JPL-Caltech.
-[Mummy](https://commons.wikimedia.org/wiki/File:Mummy_icon_-_Noun_Project_4070.svg)
-&copy; Gilad Fried / [The Noun Project](https://thenounproject.com/) /
-[CC BY 3.0](https://creativecommons.org/licenses/by/3.0/deed.en).
-[Moon](https://commons.wikimedia.org/wiki/File:Lune_ico.png)
-&copy; Luc Viatour / [https://lucnix.be](https://lucnix.be/) /
-[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.en).
-
+We have just found the holy grail of epilepsy surgery outcome prediction, and we need to start version controlling our model to ensure that we don't lose this great result.
 
 
 First, let's create a directory in `Desktop` folder for our work and then move into that directory:
 
 ~~~
 $ cd ~/Desktop
-$ mkdir planets
-$ cd planets
+$ mkdir surgery_outcomes
+$ cd surgery_outcomes
 ~~~
 {: .language-bash}
 
-Then we tell Git to make `planets` a [repository]({{ page.root }}{% link reference.md %}#repository)
+Then we tell Git to make `surgery_outcomes` a [repository]({{ page.root }}{% link reference.md %}#repository)
 -- a place where Git can store versions of our files:
 
 
@@ -54,9 +38,9 @@ $ git init
 
 It is important to note that `git init` will create a repository that
 includes subdirectories and their files---there is no need to create
-separate repositories nested within the `planets` repository, whether
+separate repositories nested within the `surgery_outcomes` repository, whether
 subdirectories are present from the beginning or added later. Also, note
-that the creation of the `planets` directory and its initialization as a
+that the creation of the `surgery_outcomes` directory and its initialization as a
 repository are completely separate processes.
 
 If we use `ls` to show the directory's contents,
@@ -68,7 +52,7 @@ $ ls
 {: .language-bash}
 
 But if we add the `-a` flag to show everything,
-we can see that Git has created a hidden directory within `planets` called `.git`:
+we can see that Git has created a hidden directory within `surgery_outcomes` called `.git`:
 
 ~~~
 $ ls -a
@@ -104,57 +88,10 @@ nothing to commit (create/copy files and use "git add" to track)
 If you are using a different version of `git`, the exact
 wording of the output might be slightly different.
 
-> ## Places to Create Git Repositories
->
-> Along with tracking information about planets (the project we have already created), 
-> Dracula would also like to track information about moons.
-> Despite Wolfman's concerns, Dracula creates a `moons` project inside his `planets` 
-> project with the following sequence of commands:
->
-> ~~~
-> $ cd ~/Desktop   # return to Desktop directory
-> $ cd planets     # go into planets directory, which is already a Git repository
-> $ ls -a          # ensure the .git subdirectory is still present in the planets directory
-> $ mkdir moons    # make a subdirectory planets/moons
-> $ cd moons       # go into moons subdirectory
-> $ git init       # make the moons subdirectory a Git repository
-> $ ls -a          # ensure the .git subdirectory is present indicating we have created a new Git repository
-> ~~~
-> {: .language-bash}
->
-> Is the `git init` command, run inside the `moons` subdirectory, required for 
-> tracking files stored in the `moons` subdirectory?
-> 
-> > ## Solution
-> >
-> > No. Dracula does not need to make the `moons` subdirectory a Git repository 
-> > because the `planets` repository will track all files, sub-directories, and 
-> > subdirectory files under the `planets` directory.  Thus, in order to track 
-> > all information about moons, Dracula only needed to add the `moons` subdirectory
-> > to the `planets` directory.
-> > 
-> > Additionally, Git repositories can interfere with each other if they are "nested":
-> > the outer repository will try to version-control
-> > the inner repository. Therefore, it's best to create each new Git
-> > repository in a separate directory. To be sure that there is no conflicting
-> > repository in the directory, check the output of `git status`. If it looks
-> > like the following, you are good to go to create a new repository as shown
-> > above:
-> >
-> > ~~~
-> > $ git status
-> > ~~~
-> > {: .language-bash}
-> > ~~~
-> > fatal: Not a git repository (or any of the parent directories): .git
-> > ~~~
-> > {: .output}
-> {: .solution}
-{: .challenge}
+
 > ## Correcting `git init` Mistakes
-> Wolfman explains to Dracula how a nested repository is redundant and may cause confusion
-> down the road. Dracula would like to remove the nested repository. How can Dracula undo 
-> his last `git init` in the `moons` subdirectory?
+> If you mess up and make a repository somewhere you shouldn't 
+> (for example within an existing repository) you can always remove it.
 >
 > > ## Solution -- USE WITH CAUTION!
 > >
@@ -169,12 +106,8 @@ wording of the output might be slightly different.
 > >
 > > ### Solution
 > > Git keeps all of its files in the `.git` directory.
-> > To recover from this little mistake, Dracula can just remove the `.git`
-> > folder in the moons subdirectory by running the following command from inside the `planets` directory:
+> > You can just remove the `.git` to stop a set of files being version controlled.
 > >
-> > ~~~
-> > $ rm -rf moons/.git
-> > ~~~
 > > {: .language-bash}
 > >
 > > But be careful! Running this command in the wrong directory, will remove
