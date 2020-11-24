@@ -24,18 +24,18 @@ where `verb` is what we actually want to do and `options` is additional optional
 Dracula sets up his new laptop:
 
 ~~~
-$ git config --global user.name "Vlad Dracula"
-$ git config --global user.email "vlad@tran.sylvan.ia"
+$ git config --global user.name "User Name"
+$ git config --global user.email "user@newcastle.ac.uk"
 ~~~
 {: .language-bash}
 
-Please use your own name and email address instead of Dracula's. This user name and email will be associated with your subsequent Git activity,
+Please use your own name and email address. This user name and email will be associated with your subsequent Git activity,
 which means that any changes pushed to
 [GitHub](https://github.com/),
 [BitBucket](https://bitbucket.org/),
 [GitLab](https://gitlab.com/) or
 another Git host server
-in a later lesson will include this information.
+a later lesson will include this information.
 
 For these lessons, we will be interacting with [GitHub](https://github.com/) and so the email address used should be the same as the one used when setting up your GitHub account. If you are concerned about privacy, please review [GitHub's instructions for keeping your email address private][git-privacy]. 
 
@@ -76,8 +76,7 @@ For these lessons, we will be interacting with [GitHub](https://github.com/) and
 > {: .language-bash}
 > 
 
-
-Dracula also has to set his favorite text editor, following this table:
+If you wish to set your favourite text editor, follow this table:
 
 | Editor             | Configuration command                            |
 |:-------------------|:-------------------------------------------------|
