@@ -31,9 +31,8 @@ $ cat trepanation.txt
 {: .language-bash}
 
 ~~~
-Cold and dry, but everything is my favorite color
-The two moons may be a problem for Wolfman
-But the Mummy will appreciate the lack of humidity
+Cheap and easy, just need a corkscrew.
+Kind of awful though, and rather old fashioned.
 An ill-considered change
 ~~~
 {: .output}
@@ -51,9 +50,8 @@ index b36abfd..0848c8d 100644
 --- a/trepanation.txt
 +++ b/trepanation.txt
 @@ -1,3 +1,4 @@
- Cold and dry, but everything is my favorite color
- The two moons may be a problem for Wolfman
- But the Mummy will appreciate the lack of humidity
+Cheap and easy, just need a corkscrew.
+Kind of awful though, and rather old fashioned.
 +An ill-considered change.
 ~~~
 {: .output}
@@ -90,10 +88,10 @@ $ git show HEAD~3 trepanation.txt
 
 ~~~
 commit f22b25e3233b4645dabd0d81e651fe074bd8e73b
-Author: Vlad Dracula <vlad@tran.sylvan.ia>
+Author: User Name <user@newcastle.ac.uk>
 Date:   Thu Aug 22 09:51:46 2013 -0400
 
-    Start notes on Mars as a base
+    Start notes on trepanation
 
 diff --git a/trepanation.txt b/trepanation.txt
 new file mode 100644
@@ -101,7 +99,7 @@ index 0000000..df0654a
 --- /dev/null
 +++ b/trepanation.txt
 @@ -0,0 +1 @@
-+Cold and dry, but everything is my favorite color
++Cheap and easy, just need a corkscrew.
 ~~~
 {: .output}
 
@@ -136,9 +134,8 @@ index df0654a..93a3e13 100644
 --- a/trepanationars.txt
 +++ b/trepanation.txt
 @@ -1 +1,4 @@
- Cold and dry, but everything is my favorite color
-+The two moons may be a problem for Wolfman
-+But the Mummy will appreciate the lack of humidity
+ Cheap and easy, just need a corkscrew.
++Kind of awful though, and rather old fashioned.
 +An ill-considered change
 ~~~
 {: .output}
@@ -179,9 +176,8 @@ $ cat trepanation.txt
 {: .language-bash}
 
 ~~~
-Cold and dry, but everything is my favorite color
-The two moons may be a problem for Wolfman
-But the Mummy will appreciate the lack of humidity
+Cheap and easy, just need a corkscrew.
+Kind of awful though, and rather old fashioned.
 ~~~
 {: .output}
 
@@ -204,7 +200,7 @@ $ cat trepanation.txt
 {: .language-bash}
 
 ~~~
-Cold and dry, but everything is my favorite color
+Cheap and easy, just need a corkscrew.
 ~~~
 {: .output}
 
