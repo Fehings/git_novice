@@ -19,28 +19,28 @@ keypoints:
 ---
 
 First let's make sure we're still in the right directory.
-You should be in the `planets` directory.
+You should be in the `surgery_outcomes` directory.
 
 ~~~
-$ cd ~/Desktop/planets
+$ cd ~/Desktop/surgery_outcomes
 ~~~
 {: .language-bash}
 
-Let's create a file called `mars.txt` that contains some notes
-about the Red Planet's suitability as a base.
+Let's create a file called `trepanation.txt` that contains some notes
+about the trepanations's suitability as a surgical procedure for epilepsy.
 We'll use `nano` to edit the file;
 you can use whatever editor you like.
 In particular, this does not have to be the `core.editor` you set globally earlier. But remember, the bash command to create or edit a new file will depend on the editor you choose (it might not be `nano`). For a refresher on text editors, check out ["Which Editor?"](https://swcarpentry.github.io/shell-novice/03-create/) in [The Unix Shell](https://swcarpentry.github.io/shell-novice/) lesson.
 
 ~~~
-$ nano mars.txt
+$ nano trepanation.txt
 ~~~
 {: .language-bash}
 
-Type the text below into the `mars.txt` file:
+Type the text below into the `trepanation.txt` file:
 
 ~~~
-Cold and dry, but everything is my favorite color
+Cheap and easy, just need a corkscrew.
 ~~~
 
 Let's first verify that the file was properly created by running the list command (`ls`):
@@ -52,20 +52,20 @@ $ ls
 {: .language-bash}
 
 ~~~
-mars.txt
+trepanation.txt
 ~~~
 {: .output}
 
 
-`mars.txt` contains a single line, which we can see by running:
+`trepanation.txt` contains a single line, which we can see by running:
 
 ~~~
-$ cat mars.txt
+$ cat trepanation.txt
 ~~~
 {: .language-bash}
 
 ~~~
-Cold and dry, but everything is my favorite color
+Cheap and easy, just need a corkscrew.
 ~~~
 {: .output}
 
@@ -85,7 +85,7 @@ No commits yet
 Untracked files:
    (use "git add <file>..." to include in what will be committed)
 
-	mars.txt
+	trepanation.txt
 
 nothing added to commit but untracked files present (use "git add" to track)
 ~~~
@@ -96,7 +96,7 @@ that Git isn't keeping track of.
 We can tell Git to track a file using `git add`:
 
 ~~~
-$ git add mars.txt
+$ git add trepanation.txt
 ~~~
 {: .language-bash}
 
@@ -115,23 +115,23 @@ No commits yet
 Changes to be committed:
   (use "git rm --cached <file>..." to unstage)
 
-	new file:   mars.txt
+	new file:   trepanation.txt
 
 ~~~
 {: .output}
 
-Git now knows that it's supposed to keep track of `mars.txt`,
+Git now knows that it's supposed to keep track of `trepanation.txt`,
 but it hasn't recorded these changes as a commit yet.
 To get it to do that,
 we need to run one more command:
 
 ~~~
-$ git commit -m "Start notes on Mars as a base"
+$ git commit -m "Start notes on trepanation as a surgical procedure"
 ~~~
 {: .language-bash}
 
 ~~~
-[master (root-commit) f22b25e] Start notes on Mars as a base
+[master (root-commit) f22b25e] Start notes on trepanation as a surgical procedure
  1 file changed, 1 insertion(+)
  create mode 100644 mars.txt
 ~~~
@@ -177,10 +177,10 @@ $ git log
 
 ~~~
 commit f22b25e3233b4645dabd0d81e651fe074bd8e73b
-Author: Vlad Dracula <vlad@tran.sylvan.ia>
+Author: User Name <user@newcastle.ac.uk>
 Date:   Thu Aug 22 09:51:46 2013 -0400
 
-    Start notes on Mars as a base
+    Start notes on trepanation as a surgical procedure
 ~~~
 {: .output}
 
@@ -195,26 +195,26 @@ and the log message Git was given when the commit was created.
 
 > ## Where Are My Changes?
 >
-> If we run `ls` at this point, we will still see just one file called `mars.txt`.
+> If we run `ls` at this point, we will still see just one file called `trepanation.txt`.
 > That's because Git saves information about files' history
 > in the special `.git` directory mentioned earlier
 > so that our filesystem doesn't become cluttered
 > (and so that we can't accidentally edit or delete an old version).
 {: .callout}
 
-Now suppose Dracula adds more information to the file.
+Now suppose we decide to add more information to the file.
 (Again, we'll edit with `nano` and then `cat` the file to show its contents;
 you may use a different editor, and don't need to `cat`.)
 
 ~~~
-$ nano mars.txt
-$ cat mars.txt
+$ nano trepanation.txt
+$ cat trepanation.txt
 ~~~
 {: .language-bash}
 
 ~~~
-Cold and dry, but everything is my favorite color
-The two moons may be a problem for Wolfman
+Cheap and easy, just need a corkscrew.
+Kind of awful though, and rather old fashioned.
 ~~~
 {: .output}
 
@@ -232,7 +232,7 @@ Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
 
-	modified:   mars.txt
+	modified:   trepanation.txt
 
 no changes added to commit (use "git add" and/or "git commit -a")
 ~~~
@@ -255,13 +255,13 @@ $ git diff
 {: .language-bash}
 
 ~~~
-diff --git a/mars.txt b/mars.txt
+diff --git a/trepanation.txt b/trepanation.txt
 index df0654a..315bf3a 100644
---- a/mars.txt
-+++ b/mars.txt
+--- a/trepanation.txt
++++ b/trepanation.txt
 @@ -1 +1,2 @@
- Cold and dry, but everything is my favorite color
-+The two moons may be a problem for Wolfman
+Cheap and easy, just need a corkscrew.
++Kind of awful though, and rather old fashioned.
 ~~~
 {: .output}
 
@@ -284,7 +284,7 @@ If we break it down into pieces:
 After reviewing our change, it's time to commit it:
 
 ~~~
-$ git commit -m "Add concerns about effects of Mars' moons on Wolfman"
+$ git commit -m "Add concerns about trepanation as a surgical approach"
 $ git status
 ~~~
 {: .language-bash}
@@ -295,7 +295,7 @@ Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
 
-	modified:   mars.txt
+	modified:   trepanation.txt
 
 no changes added to commit (use "git add" and/or "git commit -a")
 ~~~
@@ -306,13 +306,13 @@ Git won't commit because we didn't use `git add` first.
 Let's fix that:
 
 ~~~
-$ git add mars.txt
-$ git commit -m "Add concerns about effects of Mars' moons on Wolfman"
+$ git add trepanation.txt
+$ git commit -m "Add concerns about trepanation as a surgical approach"
 ~~~
 {: .language-bash}
 
 ~~~
-[master 34961b1] Add concerns about effects of Mars' moons on Wolfman
+[master 34961b1] Add concerns about trepanation as a surgical approach
  1 file changed, 1 insertion(+)
 ~~~
 {: .output}
@@ -356,429 +356,12 @@ but not yet committed.
 
 ![The Git Staging Area](../fig/git-staging-area.svg)
 
-Let's watch as our changes to a file move from our editor
-to the staging area
-and into long-term storage.
-First,
-we'll add another line to the file:
-
-~~~
-$ nano mars.txt
-$ cat mars.txt
-~~~
-{: .language-bash}
-
-~~~
-Cold and dry, but everything is my favorite color
-The two moons may be a problem for Wolfman
-But the Mummy will appreciate the lack of humidity
-~~~
-{: .output}
-
-~~~
-$ git diff
-~~~
-{: .language-bash}
-
-~~~
-diff --git a/mars.txt b/mars.txt
-index 315bf3a..b36abfd 100644
---- a/mars.txt
-+++ b/mars.txt
-@@ -1,2 +1,3 @@
- Cold and dry, but everything is my favorite color
- The two moons may be a problem for Wolfman
-+But the Mummy will appreciate the lack of humidity
-~~~
-{: .output}
-
-So far, so good:
-we've added one line to the end of the file
-(shown with a `+` in the first column).
-Now let's put that change in the staging area
-and see what `git diff` reports:
-
-~~~
-$ git add mars.txt
-$ git diff
-~~~
-{: .language-bash}
-
-There is no output:
-as far as Git can tell,
-there's no difference between what it's been asked to save permanently
-and what's currently in the directory.
-However,
-if we do this:
-
-~~~
-$ git diff --staged
-~~~
-{: .language-bash}
-
-~~~
-diff --git a/mars.txt b/mars.txt
-index 315bf3a..b36abfd 100644
---- a/mars.txt
-+++ b/mars.txt
-@@ -1,2 +1,3 @@
- Cold and dry, but everything is my favorite color
- The two moons may be a problem for Wolfman
-+But the Mummy will appreciate the lack of humidity
-~~~
-{: .output}
-
-it shows us the difference between
-the last committed change
-and what's in the staging area.
-Let's save our changes:
-
-~~~
-$ git commit -m "Discuss concerns about Mars' climate for Mummy"
-~~~
-{: .language-bash}
-
-~~~
-[master 005937f] Discuss concerns about Mars' climate for Mummy
- 1 file changed, 1 insertion(+)
-~~~
-{: .output}
-
-check our status:
-
-~~~
-$ git status
-~~~
-{: .language-bash}
-
-~~~
-On branch master
-nothing to commit, working directory clean
-~~~
-{: .output}
-
-and look at the history of what we've done so far:
-
-~~~
-$ git log
-~~~
-{: .language-bash}
-
-~~~
-commit 005937fbe2a98fb83f0ade869025dc2636b4dad5
-Author: Vlad Dracula <vlad@tran.sylvan.ia>
-Date:   Thu Aug 22 10:14:07 2013 -0400
-
-    Discuss concerns about Mars' climate for Mummy
-
-commit 34961b159c27df3b475cfe4415d94a6d1fcd064d
-Author: Vlad Dracula <vlad@tran.sylvan.ia>
-Date:   Thu Aug 22 10:07:21 2013 -0400
-
-    Add concerns about effects of Mars' moons on Wolfman
-
-commit f22b25e3233b4645dabd0d81e651fe074bd8e73b
-Author: Vlad Dracula <vlad@tran.sylvan.ia>
-Date:   Thu Aug 22 09:51:46 2013 -0400
-
-    Start notes on Mars as a base
-~~~
-{: .output}
-
-> ## Word-based diffing
->
-> Sometimes, e.g. in the case of the text documents a line-wise
-> diff is too coarse. That is where the `--color-words` option of
-> `git diff` comes in very useful as it highlights the changed
-> words using colors.
-{: .callout}
-
-> ## Paging the Log
->
-> When the output of `git log` is too long to fit in your screen,
-> `git` uses a program to split it into pages of the size of your screen.
-> When this "pager" is called, you will notice that the last line in your
-> screen is a `:`, instead of your usual prompt.
->
-> *   To get out of the pager, press <kbd>Q</kbd>.
-> *   To move to the next page, press <kbd>Spacebar</kbd>.
-> *   To search for `some_word` in all pages,
->     press <kbd>/</kbd>
->     and type `some_word`.
->     Navigate through matches pressing <kbd>N</kbd>.
-{: .callout}
-
-> ## Limit Log Size
->
-> To avoid having `git log` cover your entire terminal screen, you can limit the
-> number of commits that Git lists by using `-N`, where `N` is the number of
-> commits that you want to view. For example, if you only want information from
-> the last commit you can use:
->
-> ~~~
-> $ git log -1
-> ~~~
-> {: .language-bash}
->
-> ~~~
-> commit 005937fbe2a98fb83f0ade869025dc2636b4dad5
-> Author: Vlad Dracula <vlad@tran.sylvan.ia>
-> Date:   Thu Aug 22 10:14:07 2013 -0400
->
->    Discuss concerns about Mars' climate for Mummy
-> ~~~
-> {: .output}
->
-> You can also reduce the quantity of information using the
-> `--oneline` option:
->
-> ~~~
-> $ git log --oneline
-> ~~~
-> {: .language-bash}
-> ~~~
-> 005937f Discuss concerns about Mars' climate for Mummy
-> 34961b1 Add concerns about effects of Mars' moons on Wolfman
-> f22b25e Start notes on Mars as a base
-> ~~~
-> {: .output}
->
-> You can also combine the `--oneline` option with others. One useful
-> combination adds `--graph` to display the commit history as a text-based
-> graph and to indicate which commits are associated with the
-> current `HEAD`, the current branch `master`, or
-> [other Git references][git-references]:
->
-> ~~~
-> $ git log --oneline --graph
-> ~~~
-> {: .language-bash}
-> ~~~
-> * 005937f (HEAD -> master) Discuss concerns about Mars' climate for Mummy
-> * 34961b1 Add concerns about effects of Mars' moons on Wolfman
-> * f22b25e Start notes on Mars as a base
-> ~~~
-> {: .output}
-{: .callout}
-
-> ## Directories
->
-> Two important facts you should know about directories in Git.
->
-> 1. Git does not track directories on their own, only files within them.
->    Try it for yourself:
->
->    ~~~
->    $ mkdir spaceships
->    $ git status
->    $ git add spaceships
->    $ git status
->    ~~~
->    {: .language-bash}
->
->    Note, our newly created empty directory `spaceships` does not appear in
->    the list of untracked files even if we explicitly add it (_via_ `git add`) to our
->    repository. This is the reason why you will sometimes see `.gitkeep` files
->    in otherwise empty directories. Unlike `.gitignore`, these files are not special
->    and their sole purpose is to populate a directory so that Git adds it to
->    the repository. In fact, you can name such files anything you like.
->
-> 2. If you create a directory in your Git repository and populate it with files,
->    you can add all files in the directory at once by:
->
->    ~~~
->    git add <directory-with-files>
->    ~~~
->    {: .language-bash}
->
->    Try it for yourself:
->
->    ~~~
->    $ touch spaceships/apollo-11 spaceships/sputnik-1
->    $ git status
->    $ git add spaceships
->    $ git status
->    ~~~
->    {: .language-bash}
->
->    Before moving on, we will commit these changes.
->
->    ~~~
->    $ git commit -m "Add some initial thoughts on spaceships"
->    ~~~
->    {: .language-bash}
->
-{: .callout}
 
 To recap, when we want to add changes to our repository,
 we first need to add the changed files to the staging area
 (`git add`) and then commit the staged changes to the
-repository (`git commit`):
+repository (`git commit`).
 
-![The Git Commit Workflow](../fig/git-committing.svg)
-
-> ## Choosing a Commit Message
->
-> Which of the following commit messages would be most appropriate for the
-> last commit made to `mars.txt`?
->
-> 1. "Changes"
-> 2. "Added line 'But the Mummy will appreciate the lack of humidity' to mars.txt"
-> 3. "Discuss effects of Mars' climate on the Mummy"
->
-> > ## Solution
-> > Answer 1 is not descriptive enough, and the purpose of the commit is unclear;
-> > and answer 2 is redundant to using "git diff" to see what changed in this commit;
-> > but answer 3 is good: short, descriptive, and imperative.
-> {: .solution}
-{: .challenge}
-
-> ## Committing Changes to Git
->
-> Which command(s) below would save the changes of `myfile.txt`
-> to my local Git repository?
->
-> 1. ~~~
->    $ git commit -m "my recent changes"
->    ~~~
->    {: .language-bash}
-> 2. ~~~
->    $ git init myfile.txt
->    $ git commit -m "my recent changes"
->    ~~~
->    {: .language-bash}
-> 3. ~~~
->    $ git add myfile.txt
->    $ git commit -m "my recent changes"
->    ~~~
->    {: .language-bash}
-> 4. ~~~
->    $ git commit -m myfile.txt "my recent changes"
->    ~~~
->    {: .language-bash}
->
-> > ## Solution
-> >
-> > 1. Would only create a commit if files have already been staged.
-> > 2. Would try to create a new repository.
-> > 3. Is correct: first add the file to the staging area, then commit.
-> > 4. Would try to commit a file "my recent changes" with the message myfile.txt.
-> {: .solution}
-{: .challenge}
-
-> ## Committing Multiple Files
->
-> The staging area can hold changes from any number of files
-> that you want to commit as a single snapshot.
->
-> 1. Add some text to `mars.txt` noting your decision
-> to consider Venus as a base
-> 2. Create a new file `venus.txt` with your initial thoughts
-> about Venus as a base for you and your friends
-> 3. Add changes from both files to the staging area,
-> and commit those changes.
->
-> > ## Solution
-> >
-> > First we make our changes to the `mars.txt` and `venus.txt` files:
-> > ~~~
-> > $ nano mars.txt
-> > $ cat mars.txt
-> > ~~~
-> > {: .language-bash}
-> > ~~~
-> > Maybe I should start with a base on Venus.
-> > ~~~
-> > {: .output}
-> > ~~~
-> > $ nano venus.txt
-> > $ cat venus.txt
-> > ~~~
-> > {: .language-bash}
-> > ~~~
-> > Venus is a nice planet and I definitely should consider it as a base.
-> > ~~~
-> > {: .output}
-> > Now you can add both files to the staging area. We can do that in one line:
-> >
-> > ~~~
-> > $ git add mars.txt venus.txt
-> > ~~~
-> > {: .language-bash}
-> > Or with multiple commands:
-> > ~~~
-> > $ git add mars.txt
-> > $ git add venus.txt
-> > ~~~
-> > {: .language-bash}
-> > Now the files are ready to commit. You can check that using `git status`. If you are ready to commit use:
-> > ~~~
-> > $ git commit -m "Write plans to start a base on Venus"
-> > ~~~
-> > {: .language-bash}
-> > ~~~
-> > [master cc127c2]
-> >  Write plans to start a base on Venus
-> >  2 files changed, 2 insertions(+)
-> >  create mode 100644 venus.txt
-> > ~~~
-> > {: .output}
-> {: .solution}
-{: .challenge}
-
-> ## `bio` Repository
->
-> * Create a new Git repository on your computer called `bio`.
-> * Write a three-line biography for yourself in a file called `me.txt`,
-> commit your changes
-> * Modify one line, add a fourth line
-> * Display the differences
-> between its updated state and its original state.
->
-> > ## Solution
-> >
-> > If needed, move out of the `planets` folder:
-> >
-> > ~~~
-> > $ cd ..
-> > ~~~
-> > {: .language-bash}
-> >
-> > Create a new folder called `bio` and 'move' into it:
-> >
-> > ~~~
-> > $ mkdir bio
-> > $ cd bio
-> > ~~~
-> > {: .language-bash}
-> >
-> > Initialise git:
-> >
-> > ~~~
-> > $ git init
-> > ~~~
-> > {: .language-bash}
-> >
-> > Create your biography file `me.txt` using `nano` or another text editor.
-> > Once in place, add and commit it to the repository:
-> >
-> > ~~~
-> > $ git add me.txt
-> > $ git commit -m "Add biography file" 
-> > ~~~
-> > {: .language-bash}
-> >
-> > Modify the file as described (modify one line, add a fourth line).
-> > To display the differences
-> > between its updated state and its original state, use `git diff`:
-> >
-> > ~~~
-> > $ git diff me.txt
-> > ~~~
-> > {: .language-bash}
-> >
-> {: .solution}
-{: .challenge}
 
 [commit-messages]: https://chris.beams.io/posts/git-commit/
 [git-references]: https://git-scm.com/book/en/v2/Git-Internals-Git-References
