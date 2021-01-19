@@ -15,7 +15,7 @@ keypoints:
 Once Git is configured,
 we can start using it.
 
-We have just found the holy grail of epilepsy surgery outcome prediction, and we need to start version controlling our model to ensure that we don't lose this great result.
+We have just started a project evaluating different surgical procedures for treating epilepsy, and we want to start version controlling our data, notes and models to ensure that we don't lose any information and to be able to share with collaborators.
 
 
 First, let's create a directory in `Desktop` folder for our work and then move into that directory:
